@@ -14,10 +14,11 @@ ax.set_ylabel('Imaginary', fontsize=15)
 ax.grid(True)
 fig.tight_layout()
 
-def Draw_points(x, y, size=2):
-    ax.scatter(x, y, s=size)
+
+def draw_mandelbrot_figure(x, y):
+    ax.scatter(x, y, s=2) # todo : changer le point size s=2 pour qu'il s'adapte aux nbr de points
     plt.show()
 
 
 if __name__ == "__main__":
-    Draw_points([1,2.8], [5,5.2])
+    draw_mandelbrot_figure([1, 2.8], [5, 5.2])

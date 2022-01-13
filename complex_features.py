@@ -3,7 +3,7 @@ from math import sqrt, fabs
 
 
 @dataclass
-class ComplexNumber:
+class Complex_number:
 
     def __init__(self, real_part, img_part):
         self.real_part = real_part
@@ -11,13 +11,13 @@ class ComplexNumber:
         self.module = sqrt(self.real_part**2 + self.img_part**2)
 
     def __add__(self, other_complex):
-        return ComplexNumber(
+        return Complex_number(
                     self.real_part + other_complex.real_part,
                     self.img_part + other_complex.img_part
                 )
 
     def __mul__(self, other_complex):
-        return ComplexNumber(
+        return Complex_number(
                     (self.real_part * other_complex.real_part - self.img_part * other_complex.img_part),
                     (self.real_part * other_complex.img_part + self.img_part * other_complex.real_part)
                 )
@@ -36,7 +36,13 @@ class ComplexNumber:
         return "{} {} {} i".format(self.real_part, signe, fabs(self.img_part))
 
 
+def complex_mapper(complex_number_dict: dict):
+    return Complex_number(complex_number_dict['real'], complex_number_dict['img'])
+
+
 if __name__ == "__main__" :
-    c1 = ComplexNumber(1 ,2.5)
-    c2 = ComplexNumber(1 ,2.5)
-    print(c1 == c2)
+    c1 = Complex_number(3, 8)
+    c2 = Complex_number(2, 4)
+    print(c1 + c2)
+    print(c1 * c2)
+    print(c1.module)
